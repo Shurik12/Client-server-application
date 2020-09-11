@@ -20,7 +20,7 @@ public class Client
 		try
 		{ 
 			// настройка вывода логов в файл и выключение вывода логов в консоль
-			fh = new FileHandler("client.log");
+			fh = new FileHandler("logs/Client.log");
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();  
 	        fh.setFormatter(formatter); 

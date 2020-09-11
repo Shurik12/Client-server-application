@@ -20,7 +20,7 @@ public class Server
 	{ 
 		FileHandler fh;
 		// настройка вывода логов в файл и выключение вывода логов в консоль
-		fh = new FileHandler("server.log");
+		fh = new FileHandler("logs/Server.log");
 		logger.addHandler(fh);
 		SimpleFormatter formatter = new SimpleFormatter();  
         fh.setFormatter(formatter); 
@@ -76,7 +76,7 @@ class ClientHandler extends Thread
 	final Socket s;
 	Hashtable<String, String> data;
 	String [] words, keyVal;
-	public static final Logger logger = Logger.getLogger(Server.class.getName()); //inicialize logger
+	public static final Logger logger = Logger.getLogger(ClientHandler.class.getName()); //inicialize logger
 
 	// Constructor 
 	public ClientHandler(Socket s, DataInputStream dis, DataOutputStream dos) 
@@ -110,7 +110,7 @@ class ClientHandler extends Thread
 		try {
 
 			// настройка вывода логов в файл и выключение вывода логов в консоль
-			fh = new FileHandler("server.log");
+			fh = new FileHandler("logs/ClientHandler.log");
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();  
 	        fh.setFormatter(formatter); 
@@ -162,7 +162,7 @@ class ClientHandler extends Thread
 					case "Get":
 
 						if (data.keySet().contains(words[1])){
-							toreturn = get(words[1]);
+							toreturn = this.get(words[1]);
 							dos.writeUTF(toreturn); 
 							break;
 						} else {
@@ -189,9 +189,9 @@ class ClientHandler extends Thread
 						
 
 					case "Append":
+						keyVal = words[1].split("&");
 						if (!data.keySet().contains(keyVal[0])){
-							keyVal = words[1].split("&");
-							append(keyVal[0], keyVal[1]);
+							this.append(keyVal[0], keyVal[1]);
 							dos.writeUTF("The "+keyVal[0]+" with value "+keyVal[1]+" was appended in db "); 
 							break;
 						} else {
