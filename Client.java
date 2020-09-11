@@ -4,14 +4,28 @@
 import java.io.*; 
 import java.net.*; 
 import java.util.Scanner; 
+import java.util.logging.*;
+// import java.util.logging.Level;
+// import java.util.logging.Logger;
+// import java.util.logging.FileHandler;
 
 // Client class 
 public class Client 
 { 
+	public static final Logger logger = Logger.getLogger(Client.class.getName());
+
 	public static void main(String[] args) throws IOException 
-	{ 
+	{
+		FileHandler fh;
 		try
 		{ 
+			// настройка вывода логов в файл и выключение вывода логов в консоль
+			fh = new FileHandler("client.log");
+			logger.addHandler(fh);
+			SimpleFormatter formatter = new SimpleFormatter();  
+	        fh.setFormatter(formatter); 
+	        logger.setUseParentHandlers(false);
+
 			Scanner scn = new Scanner(System.in); 
 			
 			// getting localhost ip 
@@ -27,6 +41,7 @@ public class Client
 			// get interface and output to concole
 
 			System.out.println(dis.readUTF()); 
+			logger.info("request to server");
 	
 			// the following loop performs the exchange of 
 			// information between client and client handler 
@@ -43,19 +58,21 @@ public class Client
 					System.out.println("Closing this connection : " + s); 
 					s.close(); 
 					System.out.println("Connection closed"); 
+					logger.info("Connection closed");
 					break; 
 				} 
 				
-				// printing date or time as requested by client 
+				// printing getting response from server
 				String received = dis.readUTF(); 
-				System.out.println(received); 
+				System.out.println("Server answer: "+received); 
+				logger.info("Server answer: "+received);
 			} 
 			
 			// closing resources 
 			scn.close(); 
 			dis.close(); 
 			dos.close(); 
-		}catch(Exception e){ 
+		} catch(Exception e){ 
 			e.printStackTrace(); 
 		} 
 	} 

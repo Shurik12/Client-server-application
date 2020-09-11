@@ -6,12 +6,26 @@ import java.io.*;
 import java.text.*; 
 import java.util.*; 
 import java.net.*; 
+import java.util.logging.*;
+// import java.util.logging.Level;
+// import java.util.logging.Logger;
+// import java.util.logging.FileHandler;
 
 // Server class 
 public class Server 
 { 
+	public static final Logger logger = Logger.getLogger(Server.class.getName()); //inicialize logger
+
 	public static void main(String[] args) throws IOException 
 	{ 
+		FileHandler fh;
+		// настройка вывода логов в файл и выключение вывода логов в консоль
+		fh = new FileHandler("server.log");
+		logger.addHandler(fh);
+		SimpleFormatter formatter = new SimpleFormatter();  
+        fh.setFormatter(formatter); 
+        logger.setUseParentHandlers(false);
+
 		// server is listening on port 5056 
 		ServerSocket ss = new ServerSocket(5056); 
 		
@@ -26,13 +40,15 @@ public class Server
 				// socket object to receive incoming client requests 
 				s = ss.accept(); 
 				
-				System.out.println("A new client is connected : " + s); 
+				System.out.println("A new client is connected : " + s); // to console
+				logger.info("A new client is connected : " + s); // to log file
 				
 				// obtaining input and out streams 
 				DataInputStream dis = new DataInputStream(s.getInputStream()); 
 				DataOutputStream dos = new DataOutputStream(s.getOutputStream()); 
 				
-				System.out.println("Assigning new thread for this client"); 
+				System.out.println("Assigning new thread for this client"); // to console
+				logger.info("Assigning new thread for this client"); // to log file
 
 				// create a new thread object 
 				Thread t = new ClientHandler(s, dis, dos);
@@ -60,6 +76,7 @@ class ClientHandler extends Thread
 	final Socket s;
 	Hashtable<String, String> data;
 	String [] words, keyVal;
+	public static final Logger logger = Logger.getLogger(Server.class.getName()); //inicialize logger
 
 	// Constructor 
 	public ClientHandler(Socket s, DataInputStream dis, DataOutputStream dos) 
@@ -71,7 +88,6 @@ class ClientHandler extends Thread
 	} 
 
 	public String get(String key){
-		System.out.println(this.data.get(key)); 
 		return this.data.get(key);
 	}
 
@@ -89,15 +105,27 @@ class ClientHandler extends Thread
 		String received;
 		String toreturn;
 
+		FileHandler fh;
+
 		try {
+
+			// настройка вывода логов в файл и выключение вывода логов в консоль
+			fh = new FileHandler("server.log");
+			logger.addHandler(fh);
+			SimpleFormatter formatter = new SimpleFormatter();  
+	        fh.setFormatter(formatter); 
+	        logger.setUseParentHandlers(false);
+
 			// interface
 			dos.writeUTF("Menu:\n\t"+
 						"1) Get request: Get?key\n\t"+
 						"2) Set request: Set?key&value\n\t"+
 						"3) Append request: Append?key&value\n\t"+
 						"4) Exit - close connection");
+			
 		} catch(IOException e){ 
-			e.printStackTrace(); 
+			e.printStackTrace(); // to console
+			logger.severe("Underfned error");// to log file
 		}
 
 		while (true) 
@@ -116,6 +144,7 @@ class ClientHandler extends Thread
 					System.out.println("Closing connection with : " + s);
 					this.s.close(); 
 					System.out.println("Connection closed"); 
+					logger.info("Connection closed with : " + s); // to log file
 					break; 
 				} 
 
@@ -177,6 +206,7 @@ class ClientHandler extends Thread
 			} catch (EOFException e) {
 				System.out.println("Client " + this.s + " break channel."); 
 				System.out.println("Closing connection with : " + s);
+				logger.warning("Client " + this.s + " break channel.");
 				try{
 					this.s.close(); 	
 				} catch(IOException e1){ 
@@ -184,6 +214,7 @@ class ClientHandler extends Thread
 				}
 				
 				System.out.println("Connection closed"); 
+				logger.info("Connection closed with : " + s); // to log file
 				break;
 			} catch (IOException e) { 
 				e.printStackTrace();
