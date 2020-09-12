@@ -17,8 +17,8 @@ public class Server
 { 
 	public static final Logger logger = Logger.getLogger(Server.class.getName()); //inicialize logger
 
-	public static void main(String[] args) throws IOException 
-	{ 
+	public static void main(String[] args) throws IOException {
+
 		FileHandler fh;
 		// настройка вывода логов в файл и выключение вывода логов в консоль
 		fh = new FileHandler("logs/Server.log");
@@ -28,16 +28,17 @@ public class Server
         logger.setUseParentHandlers(false);
 
 		// server is listening on port 5056 
-		ServerSocket ss = new ServerSocket(5056); 
+		ServerSocket ss = new ServerSocket(5056);
 		
 		// running infinite loop for getting 
 		// client request 
-		while (true) 
-		{ 
-			Socket s = null; 
+
+		while (true) {
+
+			Socket s = null;
 			
-			try
-			{ 
+			try { 
+
 				// socket object to receive incoming client requests 
 				s = ss.accept(); 
 				
@@ -59,6 +60,7 @@ public class Server
 				
 			} 
 			catch (Exception e){ 
+				System.out.println("Server stoped"); // to console
 				s.close(); 
 				e.printStackTrace();
 			} 
@@ -70,6 +72,7 @@ public class Server
 class ClientHandler extends Thread 
 { 
 	// declaring variables
+	long endTime, startTime, duration;
 	final DataInputStream dis; 
 	final DataOutputStream dos; 
 	final Socket s;
@@ -110,6 +113,10 @@ class ClientHandler extends Thread
 		}
 	}
 
+	public Integer dbsize(){
+		return this.data.size();
+	}
+
 	@Override // переопределение метода из наследованного класса (Thread)
 	public void run() 
 	{ 
@@ -133,15 +140,17 @@ class ClientHandler extends Thread
 						"2) Set request: Set?key&value\n\t"+
 						"3) Append request: Append?key&value\n\t"+
 						"4) Lpop request: Lpop\n\t"+
-						"5) Exit - close connection");
+						"5) Dbsize request: Dbsize\n\t"+
+						"6) Exit - close connection");
 			
 		} catch(IOException e){ 
 			e.printStackTrace(); // to console
 			logger.severe("Underfned error");// to log file
 		}
 
-		while (true) 
-		{ 
+		startTime = System.nanoTime(); // засекаем время
+		while (true) {
+
 			try { 
 
 				// Ask user what he wants (your next request)
@@ -152,7 +161,7 @@ class ClientHandler extends Thread
 
 				if(received.equals("Exit")) 
 				{ 
-					System.out.println("Client " + this.s + " sends exit..."); 
+					System.out.println("Client " + s + " sends exit..."); 
 					System.out.println("Closing connection with : " + s);
 					this.s.close(); 
 					System.out.println("Connection closed"); 
@@ -172,13 +181,18 @@ class ClientHandler extends Thread
 				switch (words[0]) { 
 
 					case "Get":
-
-						if (data.keySet().contains(words[1])){
-							toreturn = this.get(words[1]);
-							dos.writeUTF(toreturn); 
-							break;
-						} else {
-							dos.writeUTF("The "+words[1]+" doesn't exist"); 
+						if (words.length == 2) {
+							if (data.keySet().contains(words[1])){
+								toreturn = this.get(words[1]);
+								dos.writeUTF(toreturn); 
+								break;
+							} else {
+								dos.writeUTF("The "+words[1]+" doesn't exist"); 
+								break;
+							}
+						}
+						else {
+							dos.writeUTF("Key must be entered"); 
 							break;
 						}
 
@@ -216,6 +230,11 @@ class ClientHandler extends Thread
 						dos.writeUTF("The "+toreturn+" was deleted"); 
 						break;
 
+					case "Dbsize":
+						toreturn = this.dbsize().toString();
+						dos.writeUTF("Db size: "+toreturn); 
+						break;
+
 					default: 
 						dos.writeUTF("Invalid input"); 
 						break; 
@@ -250,6 +269,9 @@ class ClientHandler extends Thread
 				e.printStackTrace();
 			}
 		} 
+		endTime = System.nanoTime();
+		duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+		logger.info("Time session execution of client "+s+": "+duration+" ms");
 		
 		try
 		{ 

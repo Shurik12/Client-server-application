@@ -1,10 +1,10 @@
-сент. 12, 2020 8:27:08 PM Client main
+сент. 13, 2020 12:13:02 AM Client main
 INFO: request to server
-сент. 12, 2020 8:27:20 PM Client main
-INFO: Server answer: The shurik with value 124 was appended in db 
-сент. 12, 2020 8:27:30 PM Client main
-INFO: Server answer: The shurik deleted
-сент. 12, 2020 8:28:10 PM Client main
-INFO: Server answer: The shurik doesn't exist
-сент. 12, 2020 8:28:25 PM Client main
-INFO: Server answer: The Has no data into db deleted
+сент. 13, 2020 12:13:21 AM Client main
+INFO: Server answer: The shurik with value dsjhcdusigvcsd was appended in db 
+сент. 13, 2020 12:13:28 AM Client main
+INFO: Server answer: dsjhcdusigvcsd
+сент. 13, 2020 12:13:36 AM Client main
+INFO: Server answer: Db size: 1
+сент. 13, 2020 12:13:42 AM Client main
+INFO: Connection closed

@@ -73,7 +73,9 @@ public class Client
 			scn.close(); 
 			dis.close(); 
 			dos.close(); 
-		} catch(Exception e){ 
+		} catch (ConnectException e) {
+			logger.warning("Conection refused. Server is down");
+		} catch (Exception e) { 
 			e.printStackTrace(); 
 		} 
 	} 
