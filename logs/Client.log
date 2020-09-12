@@ -1,6 +1,10 @@
-сент. 11, 2020 9:30:05 PM Client main
+сент. 12, 2020 8:27:08 PM Client main
 INFO: request to server
-сент. 11, 2020 9:30:21 PM Client main
-INFO: Server answer: The shurik with value qwerty was appended in db 
-сент. 11, 2020 9:30:30 PM Client main
-INFO: Server answer: qwerty
+сент. 12, 2020 8:27:20 PM Client main
+INFO: Server answer: The shurik with value 124 was appended in db 
+сент. 12, 2020 8:27:30 PM Client main
+INFO: Server answer: The shurik deleted
+сент. 12, 2020 8:28:10 PM Client main
+INFO: Server answer: The shurik doesn't exist
+сент. 12, 2020 8:28:25 PM Client main
+INFO: Server answer: The Has no data into db deleted

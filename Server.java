@@ -1,3 +1,4 @@
+// package Server;
 // Java implementation of Server side 
 // It contains two classes : Server and ClientHandler 
 // Save file as Server.java 
@@ -69,8 +70,6 @@ public class Server
 class ClientHandler extends Thread 
 { 
 	// declaring variables
-	DateFormat fordate = new SimpleDateFormat("yyyy/MM/dd"); 
-	DateFormat fortime = new SimpleDateFormat("hh:mm:ss"); 
 	final DataInputStream dis; 
 	final DataOutputStream dos; 
 	final Socket s;
@@ -87,6 +86,7 @@ class ClientHandler extends Thread
 		this.data = new Hashtable<String, String>();
 	} 
 
+	// acsess db methods
 	public String get(String key){
 		return this.data.get(key);
 	}
@@ -96,7 +96,18 @@ class ClientHandler extends Thread
 	}
 	
 	public void append(String key, String value){
-		this.data.put(key, value);	
+		this.data.put(key, value);
+	}
+
+	public String lpop(){
+		Enumeration keys = this.data.keys();
+		if (keys.hasMoreElements()) {
+			String key = keys.nextElement().toString();
+			this.data.remove(key);
+			return key;
+		} else{
+			return "nothing";
+		}
 	}
 
 	@Override // переопределение метода из наследованного класса (Thread)
@@ -121,7 +132,8 @@ class ClientHandler extends Thread
 						"1) Get request: Get?key\n\t"+
 						"2) Set request: Set?key&value\n\t"+
 						"3) Append request: Append?key&value\n\t"+
-						"4) Exit - close connection");
+						"4) Lpop request: Lpop\n\t"+
+						"5) Exit - close connection");
 			
 		} catch(IOException e){ 
 			e.printStackTrace(); // to console
@@ -149,10 +161,10 @@ class ClientHandler extends Thread
 				} 
 
 				words = received.split("\\?");
-				if (words.length != 2) {
-					dos.writeUTF("Invalid input"); 
-					continue;
-				}
+				// if (words.length != 2) {
+				// 	dos.writeUTF("Invalid input"); 
+				// 	continue;
+				// }
 				
 				// write on output stream based on the 
 				// answer from the client
@@ -178,7 +190,7 @@ class ClientHandler extends Thread
 							break;
 						}
 
-						if (data.keySet().contains(keyVal[0])){
+						if (this.data.keySet().contains(keyVal[0])){
 							this.set(keyVal[0], keyVal[1]);
 							dos.writeUTF("The "+keyVal[0]+" was changed on "+keyVal[1]); 
 							break;
@@ -190,7 +202,7 @@ class ClientHandler extends Thread
 
 					case "Append":
 						keyVal = words[1].split("&");
-						if (!data.keySet().contains(keyVal[0])){
+						if (!this.data.keySet().contains(keyVal[0])){
 							this.append(keyVal[0], keyVal[1]);
 							dos.writeUTF("The "+keyVal[0]+" with value "+keyVal[1]+" was appended in db "); 
 							break;
@@ -198,12 +210,30 @@ class ClientHandler extends Thread
 							dos.writeUTF("The "+keyVal[0]+" already exists"); 
 							break;
 						}
-						
+
+					case "Lpop":
+						toreturn = this.lpop();
+						dos.writeUTF("The "+toreturn+" was deleted"); 
+						break;
+
 					default: 
 						dos.writeUTF("Invalid input"); 
 						break; 
 				} 
 			} catch (EOFException e) {
+				System.out.println("Client " + this.s + " break channel."); 
+				System.out.println("Closing connection with : " + s);
+				logger.warning("Client " + this.s + " break channel.");
+				try{
+					this.s.close(); 	
+				} catch(IOException e1){ 
+					e1.printStackTrace(); 
+				}
+				
+				System.out.println("Connection closed"); 
+				logger.info("Connection closed with : " + s); // to log file
+				break;
+			} catch (SocketException e) {
 				System.out.println("Client " + this.s + " break channel."); 
 				System.out.println("Closing connection with : " + s);
 				logger.warning("Client " + this.s + " break channel.");

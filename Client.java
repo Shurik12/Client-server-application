@@ -1,3 +1,4 @@
+// package Client;
 // Java implementation for a client 
 // Save file as Client.java 
 
@@ -10,7 +11,7 @@ import java.util.logging.*;
 // import java.util.logging.FileHandler;
 
 // Client class 
-public class Client 
+public class Client
 { 
 	public static final Logger logger = Logger.getLogger(Client.class.getName());
 
