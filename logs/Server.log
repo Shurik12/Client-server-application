@@ -1,44 +1,4 @@
-сент. 13, 2020 12:27:47 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=59546,localport=5056]
-сент. 13, 2020 12:27:47 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 12:42:36 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=59622,localport=5056]
-сент. 13, 2020 12:42:36 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 12:42:43 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=59624,localport=5056]
-сент. 13, 2020 12:42:43 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 1:49:22 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=59944,localport=5056]
-сент. 13, 2020 1:49:22 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:23:51 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60224,localport=5056]
-сент. 13, 2020 2:23:51 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:25:41 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60234,localport=5056]
-сент. 13, 2020 2:25:41 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:25:42 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60236,localport=5056]
-сент. 13, 2020 2:25:42 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:25:42 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60238,localport=5056]
-сент. 13, 2020 2:25:42 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:27:09 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60246,localport=5056]
-сент. 13, 2020 2:27:09 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:27:09 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60248,localport=5056]
-сент. 13, 2020 2:27:09 PM Server main
-INFO: Assigning new thread for this client
-сент. 13, 2020 2:27:10 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=60250,localport=5056]
-сент. 13, 2020 2:27:10 PM Server main
+сент. 13, 2020 8:57:39 PM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=34196,localport=5056]
+сент. 13, 2020 8:57:39 PM Server main
 INFO: Assigning new thread for this client
