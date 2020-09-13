@@ -1,10 +1,2 @@
-сент. 13, 2020 12:13:02 AM Client main
-INFO: request to server
-сент. 13, 2020 12:13:21 AM Client main
-INFO: Server answer: The shurik with value dsjhcdusigvcsd was appended in db 
-сент. 13, 2020 12:13:28 AM Client main
-INFO: Server answer: dsjhcdusigvcsd
-сент. 13, 2020 12:13:36 AM Client main
-INFO: Server answer: Db size: 1
-сент. 13, 2020 12:13:42 AM Client main
-INFO: Connection closed
+сент. 13, 2020 9:22:58 AM Client main
+WARNING: Conection refused. Server is down

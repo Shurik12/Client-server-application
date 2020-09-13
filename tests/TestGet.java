@@ -3,20 +3,23 @@ import java.net.*;
 import java.util.Scanner; 
 import java.util.logging.*;
  
-public class TestAppend{
+public class TestGet {
 
-	public static final Logger logger = Logger.getLogger(TestAppend.class.getName());
+	public static final Logger logger = Logger.getLogger(TestGet.class.getName());
 
 	public static void main(String[] args) throws IOException 
 	{
 		FileHandler fh;
 		try {
 
-			String tosend;
+			String tosend, received, line;
+			String [] words;
 			long endTime, startTime, duration; // variables for time execution
+			Integer wrong=0;
+
 
 			// настройка вывода логов в файл и выключение вывода логов в консоль
-			fh = new FileHandler("logs/TestAppend.log");
+			fh = new FileHandler("logs/TestGet.log");
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();  
 	        fh.setFormatter(formatter); 
@@ -37,22 +40,23 @@ public class TestAppend{
 			// get interface and output to concole
 
 			// System.out.println(dis.readUTF());
-			System.out.println("Starting append test...");
+			System.out.println("Starting get test...");
 			dis.readUTF();
 
 			try {
+
 				File file = new File("Key-Value.txt");
+
 	            //создаем объект FileReader для объекта File
 	            FileReader fr = new FileReader(file);
 	            //создаем BufferedReader с существующего FileReader для построчного считывания
 	            BufferedReader reader = new BufferedReader(fr);
-	            // считаем сначала первую строку
-	            String line = reader.readLine();
-	            String received;
 
+	            // считаем сначала первую строку
+	            line = reader.readLine();
 	            startTime = System.nanoTime(); // засекаем время
 
-	           // читаем построчно
+	           // читаем построчно и добавляем записи в базу
 	            while (line != null) { 
 
 	            	dis.readUTF(); // from server: input next command
@@ -62,21 +66,51 @@ public class TestAppend{
 					received = dis.readUTF(); // put getting response from server to variable
 					logger.info("Server answer: "+received); // logging answer
 					line = reader.readLine(); // go to next line from est file
-				} 
+				}
+				reader.close(); // закрываем прочитанный файл
+				fr.close();
+
+				// проверяем наличие записей
+				fr = new FileReader(file);
+				reader = new BufferedReader(fr);
+				line = reader.readLine();
+				while (line != null) { 
+
+	            	dis.readUTF(); // from server: input next command
+	            	words = line.split("&");
+					tosend = "Get?" + words[0]; // formed request
+					dos.writeUTF(tosend); // send request
+					
+					received = dis.readUTF(); // put getting response from server to variable
+					
+					if ( !received.equals(words[1]) ) {
+						logger.info("Wrong answer for: "+words[0]+": "+words[1]);
+						wrong += 1;
+					}
+
+					line = reader.readLine(); // go to next line from est file
+				}
+
+				// check note, is not in db
+				dis.readUTF(); 
+				tosend = "Get?shurik";
+				dos.writeUTF(tosend);
+				received = dis.readUTF(); 
+				if ( !received.equals("The shurik doesn't exist") ) {
+					logger.info("Wrong answer for not existing note");
+					wrong += 1;
+				}
 
 				reader.close(); // закрываем прочитанный файл
+				fr.close();
 
-				// last step (check dbsize)
-				dis.readUTF(); // from server: input next command
-				tosend = "Dbsize";
-				dos.writeUTF(tosend);
-				received = dis.readUTF();
-				if ( received.equals("124") ) {
-					System.out.println("Test append - done!!!"); 
-					logger.info("Test append - done!!!");
+				// check results
+				if ( wrong == 0 ) {
+					System.out.println("Test get - done!!!"); 
+					logger.info("Test get - done!!!");
 				} else {
-					System.out.println("Test append failed! Wrong answer: "+received+", but must be 124!"); 
-					logger.severe("Test append failed! Wrong answer: "+received+", but must be 124!"); 
+					System.out.println("Test get - failed! Wrong answers: "+wrong); 
+					logger.severe("Test get - failed! Wrong answers: "+wrong);
 				}
 
 				// close test

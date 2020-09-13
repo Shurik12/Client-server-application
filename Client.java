@@ -17,9 +17,12 @@ public class Client
 
 	public static void main(String[] args) throws IOException 
 	{
-		FileHandler fh;
+		FileHandler fh; // file for logs
 		try
 		{ 
+
+			long endTime, startTime, duration; // variables for time execution
+
 			// настройка вывода логов в файл и выключение вывода логов в консоль
 			fh = new FileHandler("logs/Client.log");
 			logger.addHandler(fh);
@@ -52,8 +55,9 @@ public class Client
 				String tosend = scn.nextLine(); 
 				dos.writeUTF(tosend); 
 				
-				// If client sends exit,close this connection 
-				// and then break from the while loop 
+				startTime = System.nanoTime(); // засекаем время
+
+				// If client sends exit,close this connection and then break from the while loop
 				if(tosend.equals("Exit")) 
 				{ 
 					System.out.println("Closing this connection : " + s); 
@@ -66,7 +70,9 @@ public class Client
 				// printing getting response from server
 				String received = dis.readUTF(); 
 				System.out.println("Server answer: "+received); 
-				logger.info("Server answer: "+received);
+				endTime = System.nanoTime();
+				duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+				logger.info("Server answer: "+received+"\n\tRequest execution time: "+duration+" ms");
 			} 
 			
 			// closing resources 

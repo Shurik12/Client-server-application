@@ -72,7 +72,7 @@ public class Server
 class ClientHandler extends Thread 
 { 
 	// declaring variables
-	long endTime, startTime, duration;
+	long endTime, startTime, duration; // variavles for time execution
 	final DataInputStream dis; 
 	final DataOutputStream dos; 
 	final Socket s;
@@ -232,7 +232,7 @@ class ClientHandler extends Thread
 
 					case "Dbsize":
 						toreturn = this.dbsize().toString();
-						dos.writeUTF("Db size: "+toreturn); 
+						dos.writeUTF(toreturn); 
 						break;
 
 					default: 
