@@ -55,7 +55,7 @@ public class TestSet {
 					dos.writeUTF(tosend); // send request
 					
 					received = dis.readUTF(); // put getting response from server to variable
-					logger.info("Server answer: "+received); // logging answer
+					logger.info("Input: "+tosend+"\tOutput: "+received);
 				}
 
 				// изменяем и проверяем записи

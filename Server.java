@@ -197,6 +197,10 @@ class ClientHandler extends Thread
 						}
 
 					case "Set":
+						if (words.length != 2) {
+							dos.writeUTF("Invalid input"); 
+							break;
+						}
 						keyVal = words[1].split("&");
 
 						if (keyVal.length != 2) {
@@ -215,6 +219,12 @@ class ClientHandler extends Thread
 						
 
 					case "Append":
+
+						if (words.length != 2) {
+							dos.writeUTF("Invalid input"); 
+							break;
+						}
+						
 						keyVal = words[1].split("&");
 						if (!this.data.keySet().contains(keyVal[0])){
 							this.append(keyVal[0], keyVal[1]);

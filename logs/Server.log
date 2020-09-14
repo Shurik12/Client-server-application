@@ -1,4 +1,36 @@
-сент. 13, 2020 8:57:39 PM Server main
-INFO: A new client is connected : Socket[addr=/127.0.0.1,port=34196,localport=5056]
-сент. 13, 2020 8:57:39 PM Server main
+сент. 14, 2020 11:42:41 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36008,localport=5056]
+сент. 14, 2020 11:42:41 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:43:21 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36016,localport=5056]
+сент. 14, 2020 11:43:21 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:43:26 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36018,localport=5056]
+сент. 14, 2020 11:43:26 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:46:16 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36040,localport=5056]
+сент. 14, 2020 11:46:16 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:47:33 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36048,localport=5056]
+сент. 14, 2020 11:47:33 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:49:42 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36060,localport=5056]
+сент. 14, 2020 11:49:42 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:49:42 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36062,localport=5056]
+сент. 14, 2020 11:49:42 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:49:43 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36064,localport=5056]
+сент. 14, 2020 11:49:43 AM Server main
+INFO: Assigning new thread for this client
+сент. 14, 2020 11:49:43 AM Server main
+INFO: A new client is connected : Socket[addr=/127.0.0.1,port=36066,localport=5056]
+сент. 14, 2020 11:49:43 AM Server main
 INFO: Assigning new thread for this client

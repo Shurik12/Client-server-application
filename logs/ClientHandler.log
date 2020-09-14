@@ -1,4 +1,40 @@
-сент. 13, 2020 9:06:59 PM ClientHandler run
-INFO: Connection closed with : Socket[addr=/127.0.0.1,port=34196,localport=5056]
-сент. 13, 2020 9:06:59 PM ClientHandler run
-INFO: Time session execution of client Socket[addr=/127.0.0.1,port=34196,localport=5056]: 558681 ms
+сент. 14, 2020 11:42:41 AM ClientHandler run
+WARNING: Client Socket[addr=/127.0.0.1,port=36008,localport=5056] break channel.
+сент. 14, 2020 11:42:41 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36008,localport=5056]
+сент. 14, 2020 11:42:41 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36008,localport=5056]: 271 ms
+сент. 14, 2020 11:43:21 AM ClientHandler run
+WARNING: Client Socket[addr=/127.0.0.1,port=36016,localport=5056] break channel.
+сент. 14, 2020 11:43:21 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36016,localport=5056]
+сент. 14, 2020 11:43:21 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36016,localport=5056]: 222 ms
+сент. 14, 2020 11:43:27 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36018,localport=5056]
+сент. 14, 2020 11:43:27 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36018,localport=5056]: 260 ms
+сент. 14, 2020 11:46:16 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36040,localport=5056]
+сент. 14, 2020 11:46:16 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36040,localport=5056]: 261 ms
+сент. 14, 2020 11:47:33 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36048,localport=5056]
+сент. 14, 2020 11:47:33 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36048,localport=5056]: 304 ms
+сент. 14, 2020 11:49:42 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36060,localport=5056]
+сент. 14, 2020 11:49:42 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36060,localport=5056]: 229 ms
+сент. 14, 2020 11:49:42 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36062,localport=5056]
+сент. 14, 2020 11:49:42 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36062,localport=5056]: 240 ms
+сент. 14, 2020 11:49:43 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36064,localport=5056]
+сент. 14, 2020 11:49:43 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36064,localport=5056]: 68 ms
+сент. 14, 2020 11:49:43 AM ClientHandler run
+INFO: Connection closed with : Socket[addr=/127.0.0.1,port=36066,localport=5056]
+сент. 14, 2020 11:49:43 AM ClientHandler run
+INFO: Time session execution of client Socket[addr=/127.0.0.1,port=36066,localport=5056]: 238 ms

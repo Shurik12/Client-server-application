@@ -64,7 +64,7 @@ public class TestGet {
 					dos.writeUTF(tosend); // send request
 					
 					received = dis.readUTF(); // put getting response from server to variable
-					logger.info("Server answer: "+received); // logging answer
+					logger.info("Input: "+tosend+"\tOutput: "+received);
 					line = reader.readLine(); // go to next line from est file
 				}
 				reader.close(); // закрываем прочитанный файл
