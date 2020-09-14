@@ -224,8 +224,13 @@ class ClientHandler extends Thread
 							dos.writeUTF("Invalid input"); 
 							break;
 						}
-						
+
 						keyVal = words[1].split("&");
+						if (keyVal.length != 2) {
+							dos.writeUTF("Invalid input"); 
+							break;
+						}
+
 						if (!this.data.keySet().contains(keyVal[0])){
 							this.append(keyVal[0], keyVal[1]);
 							dos.writeUTF("The "+keyVal[0]+" with value "+keyVal[1]+" was appended in db "); 

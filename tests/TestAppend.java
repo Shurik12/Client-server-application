@@ -65,6 +65,7 @@ public class TestAppend{
 				} 
 
 				reader.close(); // закрываем прочитанный файл
+				fr.close();
 
 				// last step (check dbsize)
 				dis.readUTF(); // from server: input next command

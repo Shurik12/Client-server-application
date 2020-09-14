@@ -1,0 +1,80 @@
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get?	Output: Key must be entered
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get?fdjgklfshjwf	Output: The fdjgklfshjwf doesn't exist
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get&	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get&?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get?&	Output: The & doesn't exist
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Get???&&	Output: Key must be entered
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set?&	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set&&?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set?sjhfd	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set&dfhdj	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Set?&bbghv	Output: The  doesn't exist
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: 	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append?&	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append&&?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append?sjhfd	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append&dfhdj	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Append?&bbghv	Output: The  with value bbghv was appended in db 
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: 	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop	Output: The  was deleted
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop?	Output: The nothing was deleted
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop?&	Output: The nothing was deleted
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop&&?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop?sjhfd	Output: The nothing was deleted
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop&dfhdj	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Lpop?&bbghv	Output: The nothing was deleted
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: 	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize	Output: 0
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize?	Output: 0
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize?&	Output: 0
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize&&?	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize?sjhfd	Output: 0
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize&dfhdj	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: Dbsize?&bbghv	Output: 0
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Input: 	Output: Invalid input
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Connection closed
+сент. 14, 2020 12:26:57 PM TestBadCommands main
+INFO: Test is ended. 	Test execution time: 75 ms
