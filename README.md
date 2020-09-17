@@ -27,3 +27,9 @@ Then in another terminal run client
 ```bash
 java Client
 ```
+## Additional
+
+* The project was launched on different PCs, the local host was changed to 0.0.0.0 on the server, the server computer port was driven in on the client. 
+* The project was also tested for multithreading.
+* For the client to work correctly, separately from the server (on different machines), you need to create a folder logs in the same directory where the startup file
+* ClientForNetwork, ServerForNetwork - classes for connect remotly. But in ClientForNetwork was deleted ip computer in with running server.
